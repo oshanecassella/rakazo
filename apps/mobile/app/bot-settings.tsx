@@ -857,8 +857,8 @@ export default function BotSettingsScreen() {
             <MenuPicker
               label={t("Icon set")}
               choices={[
-                { key: "rakazo", label: t("Rakazo") },
                 { key: "organic", label: t("Original") },
+                { key: "rakazo", label: t("Rakazo") },
               ]}
               value={avatarSet}
               onChange={(next) => {
