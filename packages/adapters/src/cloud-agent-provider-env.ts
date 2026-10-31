@@ -13,6 +13,16 @@ export function resolveCloudAgentProvider(source: NodeJS.ProcessEnv = process.en
       ? "cursor"
       : "none";
   }
+  if (requested === "devin") {
+    return optional(source.DEVIN_API_KEY) &&
+      optional(source.DEVIN_ORG_ID) &&
+      optional(source.CLOUD_AGENT_SPACE_ID)
+      ? "devin"
+      : "none";
+  }
+  if (requested === "devin-local") {
+    return optional(source.CLOUD_AGENT_SPACE_ID) ? "devin-local" : "none";
+  }
   // Soft-fall: do not throw at API boot for typos / future vendor names.
   return "none";
 }
