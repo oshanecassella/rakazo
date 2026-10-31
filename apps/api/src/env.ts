@@ -73,6 +73,12 @@ export interface AppEnv {
   cloudAgentProvider: string;
   cloudAgentSpaceId: string | undefined;
   cursorApiKey: string | undefined;
+  devinApiKey: string | undefined;
+  devinOrgId: string | undefined;
+  devinMode: string | undefined;
+  devinApiBaseUrl: string | undefined;
+  devinCliPath: string | undefined;
+  devinAgentWorkspaceRoot: string | undefined;
   /** Raw PAYMENT_WALLET_* values; createPaymentWalletProvider resolves them. */
   paymentWalletProvider: string | undefined;
   paymentWalletClientId: string | undefined;
@@ -247,6 +253,12 @@ export function loadEnv(source: NodeJS.ProcessEnv = process.env): AppEnv {
     cloudAgentProvider,
     cloudAgentSpaceId: optional(source.CLOUD_AGENT_SPACE_ID),
     cursorApiKey: optional(source.CURSOR_API_KEY),
+    devinApiKey: optional(source.DEVIN_API_KEY),
+    devinOrgId: optional(source.DEVIN_ORG_ID),
+    devinMode: optional(source.DEVIN_MODE),
+    devinApiBaseUrl: optional(source.DEVIN_API_BASE_URL),
+    devinCliPath: optional(source.DEVIN_CLI_PATH),
+    devinAgentWorkspaceRoot: optional(source.DEVIN_AGENT_WORKSPACE_ROOT),
     paymentWalletProvider: optional(source.PAYMENT_WALLET_PROVIDER),
     paymentWalletClientId: optional(source.PAYMENT_WALLET_CLIENT_ID),
     agentRuntime: source.AGENT_RUNTIME ?? "pi",
